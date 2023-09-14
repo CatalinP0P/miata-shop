@@ -1,0 +1,12 @@
+@import '../_variables';
+
+.layout__container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .layout__container__body {
+    flex: 1;
+    background-color: $background;
+  }
+}
