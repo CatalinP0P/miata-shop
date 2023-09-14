@@ -1,11 +1,15 @@
 import React from 'react'
 import './header.Module.scss'
+import miataImage from 'assets/miata.png'
 
 export default function Header() {
   return (
     <div className="header__container">
       <div className="header__body">
-        <label className="header__logo">Miata Shop</label>
+        <label className="header__logo">
+          <img className="header__logo__image" src={miataImage} />
+          Miata Shop
+        </label>
         <div className="header__links__container">
           <label className="header__link">Home</label>
           <label className="header__link">Shop</label>

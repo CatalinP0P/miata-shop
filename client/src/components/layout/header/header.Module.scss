@@ -21,6 +21,16 @@
       font-weight: 400;
       font-family: 'Source Code Pro';
       color: $primary;
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+
+      .header__logo__image {
+        width: 4rem;
+        height: 4rem;
+        transform: translateY(2px);
+      }
     }
 
     .header__links__container {
