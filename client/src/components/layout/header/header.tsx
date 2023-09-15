@@ -8,7 +8,7 @@ export default function Header() {
       <div className="header__body">
         <label className="header__logo">
           <img className="header__logo__image" src={miataImage} />
-          Miata Shop
+          <label className="header__logo__text">Miata Shop</label>
         </label>
         <div className="header__links__container">
           <label className="header__link">Home</label>

@@ -1,0 +1,75 @@
+@import '../../../_mixin';
+@import '../../../_variables';
+
+.footer__container {
+  background: $primary;
+  z-index: -1;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .footer__body,
+  .footer__footer {
+    width: 95%;
+    max-width: $container-width;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    color: black;
+    gap: 1rem;
+    margin: 1rem auto;
+
+    .footer__body__item {
+      // width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+
+      .footer__name {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .footer__item__title {
+        text-decoration: underline;
+        padding-bottom: 0.25rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .footer__item__link {
+        display: flex;
+        flex-direction: row;
+        gap: 0.25rem;
+        align-items: center;
+        cursor: pointer;
+
+        & > * {
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
+  .footer__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+
+    .footer__copyright {
+      opacity: 80%;
+    }
+
+    .footer__credits {
+      span {
+        text-decoration: underline;
+        font-weight: 700;
+      }
+    }
+  }
+}

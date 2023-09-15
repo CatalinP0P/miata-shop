@@ -25,7 +25,13 @@
       display: flex;
       flex-direction: row;
       gap: 1rem;
+      cursor: pointer;
+      transition: all 0.25s ease-out;
       align-items: center;
+
+      & > * {
+        pointer-events: none;
+      }
 
       @include lg {
         font-size: 2rem;
@@ -35,10 +41,25 @@
         width: 3rem;
         height: 3rem;
         transform: translateY(2px);
+        transition: all 0.75s ease-out;
 
         @include lg {
           width: 4rem;
           height: 4rem;
+        }
+      }
+
+      .header__logo__text {
+        transition: all 0.25s ease-out;
+      }
+
+      &:hover {
+        .header__logo__text {
+          transform: translateX(+5px);
+        }
+
+        .header__logo__image {
+          rotate: -360deg;
         }
       }
     }
