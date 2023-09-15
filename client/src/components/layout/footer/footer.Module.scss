@@ -16,24 +16,41 @@
   .footer__footer {
     width: 95%;
     max-width: $container-width;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
     color: black;
     gap: 1rem;
     margin: 1rem auto;
 
-    @include md {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
     .footer__body__item {
-      width: 100%;
+      // width: 100%;
       display: flex;
       flex-direction: column;
+      align-items: end;
 
       .footer__name {
         font-size: 1.5rem;
         font-weight: 700;
+      }
+
+      .footer__item__title {
+        text-decoration: underline;
+        padding-bottom: 0.25rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .footer__item__link {
+        display: flex;
+        flex-direction: row;
+        gap: 0.25rem;
+        align-items: center;
+        cursor: pointer;
+
+        & > * {
+          pointer-events: none;
+        }
       }
     }
   }

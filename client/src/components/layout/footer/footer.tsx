@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import './footer.Module.scss'
+import { Facebook, Instagram } from '@mui/icons-material'
 
 interface FooterProps {
   layoutContainer: React.MutableRefObject<HTMLDivElement | null>
@@ -25,6 +26,17 @@ export default function Footer({ layoutContainer }: FooterProps) {
       <div className="footer__body">
         <div className="footer__body__item">
           <label className="footer__name">Miata Shop</label>
+        </div>
+        <div className="footer__body__item">
+          <label className="footer__item__title">Contact US</label>
+          <label className="footer__item__link">
+            miata__shop
+            <Instagram />
+          </label>
+          <label className="footer__item__link">
+            Miata Shop
+            <Facebook />
+          </label>
         </div>
       </div>
       <div className="footer__footer">
