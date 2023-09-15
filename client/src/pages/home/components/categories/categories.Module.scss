@@ -9,7 +9,6 @@
   flex-direction: column;
   gap: 1rem;
   color: $primary;
-  padding-top: 2rem;
 
   .categories__container__title {
     font-size: 1.25rem;
@@ -19,8 +18,16 @@
 
   .categories__container__body {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
+
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
 
     .categories__container__body__item {
       width: 100%;
@@ -67,8 +74,12 @@
 
         .category__item__title {
           z-index: 15;
-          font-size: 2rem;
+          font-size: 1.5rem;
           transition: all 0.25s ease-out;
+
+          @include md {
+            font-size: 2rem;
+          }
         }
       }
 
@@ -78,7 +89,11 @@
         }
 
         .category__item__title {
-          font-size: 2.125rem;
+          font-size: 1.6rem;
+
+          @include md {
+            font-size: 2.125rem;
+          }
         }
       }
 
