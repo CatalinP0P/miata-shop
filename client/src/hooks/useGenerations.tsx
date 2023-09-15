@@ -2,22 +2,22 @@ import { useEffect, useState } from 'react'
 import client from 'utils/contentful'
 import { Entry, EntrySkeletonType } from 'contentful'
 
-export default function useCategories() {
-  const [categories, setCategories] = useState<
+export default function useGenerations() {
+  const [generations, setGenerations] = useState<
     Entry<EntrySkeletonType, undefined, string>[]
   >([])
   const [loading, setLoading] = useState(true)
 
-  const fetchCategories = () => {
+  const fetchGenerations = () => {
     client
-      .getEntries({ content_type: 'miataShopCategory' })
+      .getEntries({ content_type: 'miataShopGeneration' })
       .then((response) => {
-        setCategories(response.items.reverse())
+        setGenerations(response.items.reverse())
         setLoading(false)
       })
   }
 
-  useEffect(() => fetchCategories(), [])
+  useEffect(() => fetchGenerations(), [])
 
-  return { categories, loading }
+  return { generations, loading }
 }
