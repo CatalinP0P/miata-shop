@@ -4,7 +4,7 @@
   padding: 1rem 2rem;
   background-color: $background;
   color: white;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.25);
 
   .header__body {
     margin: 0 auto;
@@ -12,7 +12,7 @@
     flex-direction: row;
     gap: 1rem;
     width: 95%;
-    max-width: 1280px;
+    max-width: $container-width;
     align-items: center;
     justify-content: space-between;
 
@@ -20,7 +20,7 @@
       font-size: 2rem;
       font-weight: 400;
       font-family: 'Source Code Pro';
-      color: $primary;
+      color: white;
       display: flex;
       flex-direction: row;
       gap: 1rem;

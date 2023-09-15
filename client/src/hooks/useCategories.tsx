@@ -4,7 +4,7 @@ import { Entry, EntrySkeletonType } from 'contentful'
 
 export default function useCategories() {
   const [categories, setCategories] = useState<
-    null | Entry<EntrySkeletonType, undefined, string>[]
+    Entry<EntrySkeletonType, undefined, string>[]
   >([])
   const [loading, setLoading] = useState(true)
 

@@ -1,0 +1,90 @@
+@import '../../../../_variables';
+@import '../../../../_mixin';
+
+.categories__container {
+  width: 95%;
+  max-width: $container-width;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: $primary;
+  padding-top: 2rem;
+
+  .categories__container__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .categories__container__body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    .categories__container__body__item {
+      width: 100%;
+      height: 0px;
+      padding-bottom: 60%;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      z-index: 5;
+      color: white;
+
+      .category__item__image {
+        position: absolute;
+        left: 0;
+        top: 0;
+        object-fit: cover;
+        transition: all 0.25s ease-out;
+        width: 100%;
+        height: 100%;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 85%;
+        z-index: 10;
+        transition: all 0.25s ease-out;
+      }
+
+      .category__item__body {
+        position: absolute;
+        z-index: 15;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 1rem;
+        left: 0;
+        bottom: 0;
+
+        .category__item__title {
+          z-index: 15;
+          font-size: 2rem;
+          transition: all 0.25s ease-out;
+        }
+      }
+
+      &:hover {
+        .category__item__image {
+          scale: 110%;
+        }
+
+        .category__item__title {
+          font-size: 2.125rem;
+        }
+      }
+
+      &:hover::after {
+        opacity: 0;
+      }
+    }
+  }
+}
