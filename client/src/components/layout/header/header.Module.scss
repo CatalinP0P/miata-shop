@@ -1,10 +1,11 @@
 @import '../../../_variables';
+@import '../../../_mixin';
 
 .header__container {
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   background-color: $background;
   color: white;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.05);
 
   .header__body {
     margin: 0 auto;
@@ -12,31 +13,44 @@
     flex-direction: row;
     gap: 1rem;
     width: 95%;
-    max-width: $container-width;
+    max-width: 1280px;
     align-items: center;
     justify-content: space-between;
 
     .header__logo {
-      font-size: 2rem;
+      font-size: 1.25rem;
       font-weight: 400;
       font-family: 'Source Code Pro';
-      color: white;
+      color: $primary;
       display: flex;
       flex-direction: row;
       gap: 1rem;
       align-items: center;
 
+      @include lg {
+        font-size: 2rem;
+      }
+
       .header__logo__image {
-        width: 4rem;
-        height: 4rem;
+        width: 3rem;
+        height: 3rem;
         transform: translateY(2px);
+
+        @include lg {
+          width: 4rem;
+          height: 4rem;
+        }
       }
     }
 
     .header__links__container {
-      display: flex;
+      display: none;
       flex-direction: row;
       gap: 2rem;
+
+      @include lg {
+        display: flex;
+      }
 
       .header__link {
         cursor: pointer;
@@ -75,13 +89,23 @@
         align-items: end;
 
         .header__account__name {
-          font-size: 1.25rem;
-          line-height: 1.25rem;
+          font-size: 0.75rem;
+          line-height: 0.75rem;
+
+          @include lg {
+            font-size: 1.25rem;
+            line-height: 1.25rem;
+          }
         }
 
         .header__account__email {
-          font-size: 0.75rem;
-          line-height: 0.75rem;
+          font-size: 0.5rem;
+          line-height: 0.5rem;
+
+          @include lg {
+            font-size: 0.75rem;
+            line-height: 0.75rem;
+          }
           font-weight: 800;
           text-transform: lowercase;
           opacity: 60%;
@@ -89,8 +113,12 @@
       }
 
       .header__account__image {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        @include lg {
+          width: 3.5rem;
+          height: 3.5rem;
+        }
         border-radius: 10rem;
         border: 2px solid $primary;
       }
