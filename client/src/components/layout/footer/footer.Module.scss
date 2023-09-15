@@ -1,0 +1,58 @@
+@import '../../../_mixin';
+@import '../../../_variables';
+
+.footer__container {
+  background: $primary;
+  z-index: -1;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .footer__body,
+  .footer__footer {
+    width: 95%;
+    max-width: $container-width;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    color: black;
+    gap: 1rem;
+    margin: 1rem auto;
+
+    @include md {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .footer__body__item {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .footer__name {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .footer__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+
+    .footer__copyright {
+      opacity: 80%;
+    }
+
+    .footer__credits {
+      span {
+        text-decoration: underline;
+        font-weight: 700;
+      }
+    }
+  }
+}
