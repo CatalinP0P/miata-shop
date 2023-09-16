@@ -7,6 +7,24 @@
   color: white;
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.05);
 
+  &.header__container--fluid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    background-color: transparent;
+    border-bottom: none;
+
+    .header__body {
+      max-width: none;
+    }
+
+    .header__account__container {
+      display: none !important;
+    }
+  }
+
   .header__body {
     margin: 0 auto;
     display: flex;
@@ -16,53 +34,6 @@
     max-width: 1280px;
     align-items: center;
     justify-content: space-between;
-
-    .header__logo {
-      font-size: 1.25rem;
-      font-weight: 400;
-      font-family: 'Source Code Pro';
-      color: $primary;
-      display: flex;
-      flex-direction: row;
-      gap: 1rem;
-      cursor: pointer;
-      transition: all 0.25s ease-out;
-      align-items: center;
-
-      & > * {
-        pointer-events: none;
-      }
-
-      @include lg {
-        font-size: 2rem;
-      }
-
-      .header__logo__image {
-        width: 3rem;
-        height: 3rem;
-        transform: translateY(2px);
-        transition: all 0.75s ease-out;
-
-        @include lg {
-          width: 4rem;
-          height: 4rem;
-        }
-      }
-
-      .header__logo__text {
-        transition: all 0.25s ease-out;
-      }
-
-      &:hover {
-        .header__logo__text {
-          transform: translateX(+5px);
-        }
-
-        .header__logo__image {
-          rotate: -360deg;
-        }
-      }
-    }
 
     .header__links__container {
       display: none;

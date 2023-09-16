@@ -12,7 +12,7 @@ export default function useGenerations() {
     client
       .getEntries({ content_type: 'miataShopGeneration' })
       .then((response) => {
-        setGenerations(response.items.reverse())
+        setGenerations(response.items)
         setLoading(false)
       })
   }

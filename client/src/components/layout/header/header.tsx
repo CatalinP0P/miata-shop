@@ -1,15 +1,16 @@
 import React from 'react'
 import './header.Module.scss'
-import miataImage from 'assets/miata.png'
+import Logo from 'components/ui/logo/logo'
 
-export default function Header() {
+interface HeaderProps {
+  variant?: 'normal' | 'fluid'
+}
+
+export default function Header({ variant = 'normal' }: HeaderProps) {
   return (
-    <div className="header__container">
+    <div className={'header__container ' + `header__container--${variant}`}>
       <div className="header__body">
-        <label className="header__logo">
-          <img className="header__logo__image" src={miataImage} />
-          <label className="header__logo__text">Miata Shop</label>
-        </label>
+        <Logo />
         <div className="header__links__container">
           <label className="header__link">Home</label>
           <label className="header__link">Shop</label>
