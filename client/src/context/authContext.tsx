@@ -7,6 +7,11 @@ interface AuthContextProps {
   currentUser: firebase.User | null
   loading: boolean
   error: string | null
+  createAccount: (
+    email: string,
+    password: string,
+    confirmPassword: string,
+  ) => Promise<void>
   signInWithGoogle: () => Promise<void>
   signInWithEmail: (email: string, password: string) => Promise<void>
   signOut: () => void
@@ -16,6 +21,7 @@ const AuthContext = createContext<AuthContextProps>({
   currentUser: null,
   loading: true,
   error: null,
+  createAccount: async () => {},
   signInWithGoogle: async () => {},
   signInWithEmail: async () => {},
   signOut: () => {},
@@ -44,17 +50,36 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       console.error(error)
     })
 
+  const createAccount = async (
+    email: string,
+    password: string,
+    confirmPassword: string,
+  ) => {
+    if (confirmPassword != password) {
+      return setError('Passwords do not match')
+    }
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        window.location.href = '/'
+      })
+      .catch((err: firebase.FirebaseError) => {
+        setError(err.message.split(':')[1].split('.')[0])
+      })
+  }
+
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider()
     await auth.signInWithRedirect(provider)
   }
 
   const signInWithEmail = async (email: string, password: string) => {
-    try {
-      await auth.signInWithEmailAndPassword(email, password)
-    } catch (err: unknown) {
-      setError('Email or Password is incorrect')
-    }
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {})
+      .catch((err: firebase.FirebaseError) => {
+        setError(err.message.split(':')[1].split('.')[0])
+      })
   }
 
   const signOut = async () => {
@@ -74,6 +99,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         currentUser,
         loading,
         error,
+        createAccount,
         signInWithGoogle,
         signInWithEmail,
         signOut,

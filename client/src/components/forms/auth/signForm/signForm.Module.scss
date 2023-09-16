@@ -1,0 +1,38 @@
+@import '../../../../_variables';
+
+.sign__form {
+  max-width: 35rem;
+  width: 80vw;
+  background-color: rgb(30, 30, 30);
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .sign__form__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    color: white;
+  }
+
+  .sign__form__error {
+    color: red;
+    opacity: 60%;
+  }
+
+  .sign__form__link {
+    display: block;
+    color: white;
+    text-align: center;
+    font-size: 0.75rem;
+
+    span,
+    a {
+      color: $primary;
+      text-decoration: underline;
+    }
+  }
+}
