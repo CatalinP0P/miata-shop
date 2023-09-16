@@ -3,13 +3,11 @@ import FormInput from 'components/forms/formInput/formInput'
 import Button from 'components/ui/button/button'
 import GoogleButton from 'components/ui/auth/googleButton/googleButton'
 import Separator from 'components/ui/separator/separator'
-import { useNavigate } from 'react-router-dom'
 import { useAuth } from 'context/authContext'
 import './signForm.Module.scss'
 
 export default function SignForm() {
   const { error, signInWithEmail } = useAuth()
-  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -34,19 +32,13 @@ export default function SignForm() {
         {error && <label className="sign__form__error">{error}</label>}
         <Button
           variant="primary"
-          onClick={() =>
-            signInWithEmail(email.trim(), password)
-              .then(() => {
-                navigate('/')
-              })
-              .catch(() => {
-                setEmail('')
-                setPassword('')
-              })
-          }
+          onClick={() => signInWithEmail(email.trim(), password)}
         >
           Sign in
         </Button>
+        <label className="sign__form__link">
+          no account? <a href="/auth/register">create one</a>
+        </label>
         <Separator title="or" />
         <GoogleButton />
       </div>

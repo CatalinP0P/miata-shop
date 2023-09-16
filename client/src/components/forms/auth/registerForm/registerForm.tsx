@@ -14,7 +14,7 @@ interface RegisterProps {
 }
 
 export default function RegisterForm() {
-  const { error } = useAuth()
+  const { error, createAccount } = useAuth()
 
   const [userData, setUserData] = useState<RegisterProps>({
     displayName: '',
@@ -28,21 +28,19 @@ export default function RegisterForm() {
   ) => {
     const name = e.target.name
     const value = e.target.value
-    console.log(name, value)
-    console.log(e)
     setUserData((oldData) => {
       return { ...oldData, [name]: value }
     })
   }
 
   const registerAccount = () => {
-    console.log(userData)
+    createAccount(userData.email, userData.password, userData.confirmPassword)
   }
 
   return (
     <>
       <div className="register__form">
-        <label className="register__form__title">Sign in</label>
+        <label className="register__form__title">Register Account</label>
         <FormInput
           title="Email"
           type="email"
@@ -60,17 +58,23 @@ export default function RegisterForm() {
           onChange={handleChange}
         />
         <FormInput
-          title="confirmPassword"
+          title="Confirm Password"
           type="password"
           placeholder="password"
           name="confirmPassword"
           value={userData.confirmPassword}
           onChange={handleChange}
         />
-        {error && <label className="sign__form__error">{error}</label>}
+        {error && <label className="register__form__error">{error}</label>}
         <Button variant="primary" onClick={registerAccount}>
           Create Account
         </Button>
+        <label className="register__form__link">
+          have an account?{' '}
+          <span>
+            <a href="/auth/sign">sign in</a>
+          </span>
+        </label>
         <Separator title="or" />
         <GoogleButton />
       </div>
