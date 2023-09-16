@@ -1,0 +1,23 @@
+@import '../../../_variables';
+
+.form__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+
+  .form__item__title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  .form__item__input {
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    background-color: transparent;
+    padding: 0.75rem 1rem;
+  }
+}

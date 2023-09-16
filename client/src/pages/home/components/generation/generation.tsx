@@ -1,14 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './generation.Module.scss'
 import useGenerations from 'hooks/useGenerations'
 
 export default function Generation() {
-  const { generations, loading } = useGenerations()
-
-  useEffect(() => {
-    if (loading) return
-    console.log(generations)
-  }, [loading])
+  const { generations } = useGenerations()
 
   return (
     <div className="generation__container">

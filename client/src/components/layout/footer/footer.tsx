@@ -2,16 +2,15 @@ import React, { useEffect, useRef } from 'react'
 import './footer.Module.scss'
 import { Facebook, Instagram } from '@mui/icons-material'
 
-interface FooterProps {
-  layoutContainer: React.MutableRefObject<HTMLDivElement | null>
-}
-
-export default function Footer({ layoutContainer }: FooterProps) {
+export default function Footer() {
   const footerContainerRef = useRef<HTMLDivElement | null>(null)
 
   const handleResize = () => {
-    if (layoutContainer.current) {
-      layoutContainer.current.style.marginBottom =
+    const layoutContainer: HTMLElement | null =
+      document.getElementById('layout__container')
+
+    if (layoutContainer) {
+      layoutContainer.style.marginBottom =
         footerContainerRef.current?.clientHeight + 'px'
     }
   }
