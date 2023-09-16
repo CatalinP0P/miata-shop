@@ -32,6 +32,18 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
+  firebase
+    .auth()
+    .getRedirectResult()
+    .then((result) => {
+      if (result.user) {
+        window.location.href = '/'
+      }
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider()
     await auth.signInWithRedirect(provider)

@@ -6,8 +6,11 @@ import Separator from 'components/ui/separator/separator'
 import GoogleButton from 'components/ui/auth/googleButton/googleButton'
 import Button from 'components/ui/button/button'
 import { useAuth } from 'context/authContext'
+import { useNavigate } from 'react-router-dom'
 
 export default function Sign() {
+  const navigate = useNavigate()
+
   const { signInWithEmail, error } = useAuth()
 
   const [email, setEmail] = useState('')
@@ -41,10 +44,14 @@ export default function Sign() {
             <Button
               variant="primary"
               onClick={() =>
-                signInWithEmail(email.trim(), password).then(() => {
-                  setEmail('')
-                  setPassword('')
-                })
+                signInWithEmail(email.trim(), password)
+                  .then(() => {
+                    navigate('/')
+                  })
+                  .catch(() => {
+                    setEmail('')
+                    setPassword('')
+                  })
               }
             >
               Sign in
