@@ -4,7 +4,6 @@ import Logo from 'components/ui/logo/logo'
 import { useAuth } from 'context/authContext'
 import Button from 'components/ui/button/button'
 import { ExitToApp } from '@mui/icons-material'
-import { useNavigate } from 'react-router-dom'
 
 interface HeaderProps {
   variant?: 'normal' | 'fluid'
@@ -12,7 +11,6 @@ interface HeaderProps {
 
 export default function Header({ variant = 'normal' }: HeaderProps) {
   const { currentUser, signOut } = useAuth()
-  const navigate = useNavigate()
 
   return (
     <div className={'header__container ' + `header__container--${variant}`}>
@@ -48,7 +46,7 @@ export default function Header({ variant = 'normal' }: HeaderProps) {
         {currentUser == null && (
           <div
             className="header__sign_button"
-            onClick={() => navigate('/auth/sign')}
+            onClick={() => (window.location.href = '/auth/sign')}
           >
             <Button variant={'tertiary'}>Sign in</Button>
           </div>
