@@ -1,9 +1,11 @@
 import React from 'react'
 import './categories.Module.scss'
 import useCategories from 'hooks/useCategories'
+import { useNavigate } from 'react-router-dom'
 
 export default function Categories() {
   const { categories } = useCategories()
+  const navigate = useNavigate()
 
   return (
     <div className="categories__container">
@@ -14,6 +16,9 @@ export default function Categories() {
           const image: any = category.fields?.image
           return (
             <div
+              onClick={() =>
+                navigate('/search?category=' + category.fields.categoryName)
+              }
               className="categories__container__body__item"
               key={Math.random() * 1000}
             >

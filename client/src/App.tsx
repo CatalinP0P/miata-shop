@@ -5,6 +5,7 @@ import Home from 'pages/home/home'
 import Sign from 'pages/auth/sign/sign'
 import { AuthProvider } from 'context/authContext'
 import Register from 'pages/auth/register/register'
+import Search from 'pages/search/search'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/auth/sign" element={<Sign />} />
             <Route path="/auth/register" element={<Register />} />
+            <Route path="/search" element={<Search />} />
           </Routes>
         </BrowserRouter>
       </Layout>

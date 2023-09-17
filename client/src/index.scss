@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Source+Code+Pro&display=swap');
+@import './_variables';
 
 *,
-*::after *::before {
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
 :root {
   font-family: 'Poppins';
   font-size: 16px;
+  background-color: $background;
 }
 
 body {

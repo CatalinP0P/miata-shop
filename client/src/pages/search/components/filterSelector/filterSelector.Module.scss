@@ -1,0 +1,36 @@
+@import '../../../../_variables';
+@import '../../../../_mixin';
+
+.filter__selector__container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .filter__selector__title {
+    font-size: 2rem;
+  }
+
+  .filter__selector__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @include lg {
+      flex-direction: row;
+    }
+
+    .filter__selector__price {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+  }
+
+  .filter__selector__footer {
+    padding-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
