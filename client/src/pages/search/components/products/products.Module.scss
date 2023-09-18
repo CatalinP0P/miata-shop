@@ -1,0 +1,30 @@
+@import '../../../../_variables';
+@import '../../../../_mixin';
+
+.products__container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+
+  .products__title {
+    font-size: 2rem;
+  }
+
+  .products__body {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(1, 1fr);
+
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include md {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include lg {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

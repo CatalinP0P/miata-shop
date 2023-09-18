@@ -4,4 +4,9 @@
   width: 95%;
   max-width: $container-width;
   margin: 0 auto;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
 }
