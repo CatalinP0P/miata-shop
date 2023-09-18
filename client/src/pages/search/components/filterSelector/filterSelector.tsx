@@ -5,14 +5,7 @@ import Select from 'components/forms/select/select'
 import useGenerations from 'hooks/useGenerations'
 import FormInput from 'components/forms/formInput/formInput'
 import Button from 'components/ui/button/button'
-
-interface FilterProps {
-  q: string | null
-  category: string | null
-  minPrice: number | null
-  maxPrice: number | null
-  generation: string | null
-}
+import { FilterProps } from 'types/filter'
 
 export default function FilterSelector() {
   const categoriesData = useCategories()
@@ -47,7 +40,6 @@ export default function FilterSelector() {
 
   const setFiltersURL = () => {
     const searchParams = new URLSearchParams('')
-
     Object.entries(filters).forEach(([key, value]) => {
       if (value) searchParams.set(key, value)
     })
@@ -57,6 +49,22 @@ export default function FilterSelector() {
       document.title,
       `?${searchParams.toString()}`,
     )
+
+    window.location.reload()
+  }
+
+  const resetFilters = () => {
+    const searchParams = new URLSearchParams('')
+
+    if (filters.q) searchParams.set('q', filters.q as string)
+
+    window.history.replaceState(
+      {},
+      document.title,
+      `?${searchParams.toString()}`,
+    )
+
+    window.location.reload()
   }
 
   useEffect(() => {
@@ -116,8 +124,8 @@ export default function FilterSelector() {
         />
       </div>
       <div className="filter__selector__footer">
-        <Button onClick={() => console.log(filters)} variant="secondary">
-          Log Filters
+        <Button onClick={resetFilters} variant="secondary">
+          Reset Filters
         </Button>
         <Button onClick={setFiltersURL} variant="primary">
           Set Filters
