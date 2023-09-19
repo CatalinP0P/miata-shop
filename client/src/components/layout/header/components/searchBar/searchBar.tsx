@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import { Close, Search } from '@mui/icons-material'
-import { useNavigate } from 'react-router-dom'
 import './searchBar.Module.scss'
 
 export default function SearchBar() {
   const [value, setValue] = useState('')
-  const navigate = useNavigate()
 
   const searchProduct = () => {
-    navigate('/search?q=' + value)
+    window.location.href = '/search?q=' + value
   }
 
   return (
