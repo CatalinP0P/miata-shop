@@ -29,9 +29,11 @@ export default function ProductCard({
           <label className="product__card__price">
             ${product.fields.price as string}
           </label>
-          <label className="product__card__oldprice">
-            ${product.fields.oldPrice as string}
-          </label>
+          {product.fields.oldPrice && (
+            <label className="product__card__oldprice">
+              ${product.fields.oldPrice as string}
+            </label>
+          )}
         </div>
         <Button variant="primary" className="product__card__button">
           Add to Cart

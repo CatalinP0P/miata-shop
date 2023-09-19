@@ -1,0 +1,37 @@
+@import '../../../../../_variables';
+@import '../../../../../_mixin';
+
+.header__search {
+  flex-direction: row;
+  gap: 0.25rem;
+  align-items: center;
+  border: 1px solid $primary;
+  padding: 0 0.75rem;
+  flex-grow: 1;
+  color: &primary;
+  border-radius: 100rem;
+  display: flex;
+
+  .header__search__input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    padding: 0.75rem 1rem;
+    color: $primary;
+    min-width: 10px;
+    flex-grow: 1;
+  }
+
+  .header__search__icon {
+    color: $primary;
+    width: fit-content;
+    height: fit-content;
+    transform: translateY(10%);
+    cursor: pointer;
+    transition: all 0.125s ease-out;
+
+    &:active {
+      scale: 110%;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import Logo from 'components/ui/logo/logo'
 import { useAuth } from 'context/authContext'
 import Button from 'components/ui/button/button'
 import { ExitToApp } from '@mui/icons-material'
+import SearchBar from './components/searchBar/searchBar'
 
 interface HeaderProps {
   variant?: 'normal' | 'fluid'
@@ -21,6 +22,8 @@ export default function Header({ variant = 'normal' }: HeaderProps) {
           <label className="header__link">Shop</label>
           <label className="header__link">Explore</label>
         </div>
+
+        <SearchBar />
 
         {currentUser != null && (
           <div className="header__account__container">
