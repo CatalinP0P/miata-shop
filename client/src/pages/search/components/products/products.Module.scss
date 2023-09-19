@@ -15,15 +15,15 @@
     gap: 1rem;
     grid-template-columns: repeat(1, 1fr);
 
-    @include sm {
+    @include xs {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @include md {
+    @include sm {
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @include lg {
+    @include md {
       grid-template-columns: repeat(4, 1fr);
     }
   }
