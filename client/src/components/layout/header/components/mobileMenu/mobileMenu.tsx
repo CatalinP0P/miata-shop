@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import Button from 'components/ui/button/button'
 import './mobileMenu.Module.scss'
-import { CloseRounded, MenuRounded } from '@mui/icons-material'
+import { CloseRounded, ExitToApp, MenuRounded } from '@mui/icons-material'
 import { links } from 'static/links'
 import UserCard from 'components/ui/userCard/userCard'
 import { useAuth } from 'context/authContext'
 
 export default function MobileMenu() {
-  const { currentUser } = useAuth()
+  const { currentUser, signOut } = useAuth()
   const [visibility, setVisibility] = useState(false)
   const [selectedLink, setSelectedLink] = useState<string | null>(null)
 
@@ -65,6 +66,20 @@ export default function MobileMenu() {
             }
           >
             <UserCard size="large" user={currentUser} />
+            <div className="mobile__menu__popup__signout" onClick={signOut}>
+              <ExitToApp fontSize="inherit" />
+            </div>
+          </div>
+        )}
+
+        {currentUser == null && (
+          <div className="mobile__menu__popup__signin">
+            <Button
+              onClick={() => (window.location.href = '/auth/sign')}
+              size="large"
+            >
+              Sign in
+            </Button>
           </div>
         )}
       </div>

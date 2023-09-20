@@ -38,7 +38,7 @@ export default function Header({ variant = 'normal' }: HeaderProps) {
 
         {currentUser == null && (
           <div
-            className="header__sign_button"
+            className="header__sign__button"
             onClick={() => (window.location.href = '/auth/sign')}
           >
             <Button variant={'tertiary'}>Sign in</Button>
