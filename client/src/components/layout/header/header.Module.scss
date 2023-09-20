@@ -16,8 +16,8 @@
     background-color: transparent;
     border-bottom: none;
 
-    .header__sign_button {
-      display: none;
+    .header__sign__button {
+      display: none !important;
     }
 
     .header__account__container {
@@ -34,6 +34,14 @@
     max-width: 1280px;
     align-items: center;
     justify-content: space-between;
+
+    .header__sign__button {
+      display: none;
+
+      @include lg {
+        display: block;
+      }
+    }
 
     .header__links__container {
       display: none;
@@ -83,5 +91,10 @@
     color: $primary;
     cursor: pointer;
     transform: translateY(10%);
+    display: none;
+
+    @include lg {
+      display: block;
+    }
   }
 }
