@@ -1,0 +1,68 @@
+@import '../../../_variables';
+@import '../../../_mixin';
+
+.user__card__container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  align-items: center;
+
+  .user__card__text__container {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: end;
+
+    .user__card__name {
+      font-size: 0.75rem;
+      line-height: 0.75rem;
+
+      @include lg {
+        font-size: 1.25rem;
+        line-height: 1.25rem;
+      }
+    }
+
+    .user__card__email {
+      font-size: 0.5rem;
+      line-height: 0.5rem;
+
+      @include lg {
+        font-size: 0.75rem;
+        line-height: 0.75rem;
+      }
+      font-weight: 800;
+      text-transform: lowercase;
+      opacity: 60%;
+    }
+  }
+
+  .user__card__image {
+    width: 2.5rem;
+    height: 2.5rem;
+    @include lg {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+    border-radius: 10rem;
+    border: 2px solid $primary;
+  }
+
+  &.user__card__container--large {
+    .user__card__image {
+      height: 5rem;
+      width: 5rem;
+    }
+
+    .user__card__email {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+
+    .user__card__name {
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+  }
+}

@@ -9,7 +9,7 @@
   flex-direction: row;
   gap: 1rem;
   cursor: pointer;
-  transition: all 0.25s ease-out;
+  transition: all 0.125s ease-out;
   align-items: center;
 
   & > * {
@@ -33,7 +33,8 @@
   }
 
   .header__logo__text {
-    transition: all 0.25s ease-out;
+    transition: all 0.125s ease-out;
+    white-space: nowrap;
   }
 
   &:hover {

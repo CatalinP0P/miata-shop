@@ -1,0 +1,73 @@
+import React, { useEffect, useState } from 'react'
+import './mobileMenu.Module.scss'
+import { CloseRounded, MenuRounded } from '@mui/icons-material'
+import { links } from 'static/links'
+import UserCard from 'components/ui/userCard/userCard'
+import { useAuth } from 'context/authContext'
+
+export default function MobileMenu() {
+  const { currentUser } = useAuth()
+  const [visibility, setVisibility] = useState(false)
+  const [selectedLink, setSelectedLink] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (visibility) {
+      document.body.classList.add('disable-scroll')
+    } else {
+      document.body.classList.remove('disable-scroll')
+    }
+  }, [visibility])
+
+  return (
+    <>
+      <div
+        className="mobile__menu__button"
+        onClick={() => setVisibility(!visibility)}
+      >
+        {visibility ? (
+          <CloseRounded fontSize="large" />
+        ) : (
+          <MenuRounded fontSize="large" />
+        )}
+      </div>
+
+      <div
+        className={`mobile__menu__popup ${
+          visibility ? 'mobile__menu__popup--active' : ''
+        }`}
+      >
+        {links.map((link) => {
+          return (
+            <label
+              key={link.title}
+              onClick={() => {
+                setSelectedLink(link.path)
+                setTimeout(() => {
+                  window.location.href = link.path
+                }, 350)
+              }}
+              className={
+                'mobile__menu__link ' +
+                (visibility ? 'animate' : '') +
+                ' ' +
+                (link.path == selectedLink ? ' selected' : '')
+              }
+            >
+              {link.title}
+            </label>
+          )
+        })}
+        {currentUser != null && (
+          <div
+            className={
+              'mobile__menu__popup__account ' +
+              (visibility ? 'slide--bottom' : '')
+            }
+          >
+            <UserCard size="large" user={currentUser} />
+          </div>
+        )}
+      </div>
+    </>
+  )
+}
