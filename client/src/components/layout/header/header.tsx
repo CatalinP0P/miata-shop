@@ -5,6 +5,8 @@ import { useAuth } from 'context/authContext'
 import Button from 'components/ui/button/button'
 import { ExitToApp } from '@mui/icons-material'
 import SearchBar from './components/searchBar/searchBar'
+import UserCard from 'components/ui/userCard/userCard'
+import MobileMenu from './components/mobileMenu/mobileMenu'
 
 interface HeaderProps {
   variant?: 'normal' | 'fluid'
@@ -26,24 +28,12 @@ export default function Header({ variant = 'normal' }: HeaderProps) {
         <SearchBar />
 
         {currentUser != null && (
-          <div className="header__account__container">
-            <div className="header__account__text__container">
-              <label className="header__account__name">
-                {currentUser?.displayName}
-              </label>
-              <label className="header__account__email">
-                {currentUser?.email}
-              </label>
-            </div>
-
-            <img
-              src={currentUser?.photoURL as string}
-              className="header__account__image"
-            />
+          <span className="header__account__container">
+            <UserCard user={currentUser} />
             <div onClick={signOut}>
               <ExitToApp fontSize="large" className="header__account__exit" />
             </div>
-          </div>
+          </span>
         )}
 
         {currentUser == null && (
@@ -54,6 +44,8 @@ export default function Header({ variant = 'normal' }: HeaderProps) {
             <Button variant={'tertiary'}>Sign in</Button>
           </div>
         )}
+
+        <MobileMenu />
       </div>
     </div>
   )

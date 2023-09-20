@@ -66,59 +66,22 @@
         }
       }
     }
+  }
 
-    .header__account__container {
+  .header__account__container {
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    display: none;
+
+    @include lg {
       display: flex;
-      flex-direction: row;
-      gap: 1.25rem;
-      align-items: center;
-
-      .header__account__text__container {
-        display: flex;
-        gap: 0.5rem;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: end;
-
-        .header__account__name {
-          font-size: 0.75rem;
-          line-height: 0.75rem;
-
-          @include lg {
-            font-size: 1.25rem;
-            line-height: 1.25rem;
-          }
-        }
-
-        .header__account__email {
-          font-size: 0.5rem;
-          line-height: 0.5rem;
-
-          @include lg {
-            font-size: 0.75rem;
-            line-height: 0.75rem;
-          }
-          font-weight: 800;
-          text-transform: lowercase;
-          opacity: 60%;
-        }
-      }
-
-      .header__account__image {
-        width: 2.5rem;
-        height: 2.5rem;
-        @include lg {
-          width: 3.5rem;
-          height: 3.5rem;
-        }
-        border-radius: 10rem;
-        border: 2px solid $primary;
-      }
-
-      .header__account__exit {
-        color: $primary;
-        cursor: pointer;
-      }
     }
+  }
+
+  .header__account__exit {
+    color: $primary;
+    cursor: pointer;
+    transform: translateY(10%);
   }
 }
