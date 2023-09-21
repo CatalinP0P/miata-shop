@@ -9,7 +9,12 @@ export default function ProductCard({
   product: Entry<EntrySkeletonType, undefined, string>
 }) {
   return (
-    <div className="product__card__container">
+    <div
+      className="product__card__container"
+      onClick={() =>
+        (window.location.href = ('product/' + product.fields.slug) as string)
+      }
+    >
       <div
         className="product__card__image"
         style={{
@@ -22,20 +27,28 @@ export default function ProductCard({
         }}
       ></div>
       <div className="product__card__body">
-        <label className="product__card__title">
-          {product.fields.title as string}
-        </label>
-        <div className="product__card__price__container">
-          <label className="product__card__price">
-            ${product.fields.price as string}
+        <div className="product__card__info__container">
+          <label className="product__card__title">
+            {product.fields.title as string}
           </label>
-          {product.fields.oldPrice && (
-            <label className="product__card__oldprice">
-              ${product.fields.oldPrice as string}
+          <div className="product__card__price__container">
+            <label className="product__card__price">
+              ${product.fields.price as string}
             </label>
-          )}
+            {product.fields.oldPrice && (
+              <label className="product__card__oldprice">
+                ${product.fields.oldPrice as string}
+              </label>
+            )}
+          </div>
         </div>
-        <Button variant="primary" className="product__card__button">
+        <Button
+          variant="primary"
+          className="product__card__button"
+          onClick={(e) => {
+            e.stopPropagation()
+          }}
+        >
           Add to Cart
         </Button>
       </div>
