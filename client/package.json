@@ -9,6 +9,8 @@
   },
   "preferredPackageManager": "npm",
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.17.2",
+    "@contentful/rich-text-types": "^16.3.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.9",
@@ -27,6 +29,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
+    "react-star-ratings": "^2.3.0",
     "sass": "^1.67.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
