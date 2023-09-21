@@ -1,7 +1,8 @@
 import React from 'react'
 import { Rating } from '@mui/material'
-import dummyImage from 'assets/miata.png'
 import './productReviews.Module.scss'
+import AddReview from './components/addReview/addReview'
+import useReviews from 'hooks/useReviews'
 
 export default function ProductReviews({
   productSlug,
@@ -9,37 +10,40 @@ export default function ProductReviews({
   productSlug: string
 }) {
   console.log(productSlug)
+  const { reviews } = useReviews(productSlug)
 
   return (
     <div className="product__reviews__container">
       <div className="product__reviews__header">
         <label className="product__reviews__title">Reviews</label>
         <div className="product__reviews__rating__container">
-          <Rating value={4} size="large" />
+          <Rating value={4} size="large" readOnly />
           <label className="product__reviews__rating__label">
-            4/5 <span>141</span>
+            4/5 <span>{reviews?.length}</span>
           </label>
         </div>
       </div>
       <div className="product__reviews__body">
-        <div className="product__review__item">
-          <div className="product__review__item__body">
-            <div
-              className="product__review__item__image"
-              style={{ backgroundImage: `url("${dummyImage}")` }}
-            />
-            <label className="product__review__item__text">
-              <div className="product__reviews__rating__container">
-                <Rating value={4} />
-                <label>4/5</label>
+        {reviews?.map((review) => {
+          return (
+            <div className="product__review__item" key={Math.random() * 10000}>
+              <div className="product__review__item__body">
+                <div
+                  className="product__review__item__image"
+                  style={{ backgroundImage: `url("${review.imageURL}")` }}
+                />
+                <label className="product__review__item__text">
+                  <div className="product__reviews__rating__container">
+                    <Rating value={review.rating} readOnly />
+                  </div>
+                  {review.text}
+                </label>
               </div>
-              Minim sit Lorem aliquip in incididunt fugiat ea dolor nostrud.
-              Sunt elit eu esse ad enim non cupidatat proident enim ad laboris.
-              Velit esse consectetur sint exercitation duis aliqua nostrud
-              nostrud nostrud adipisicing.
-            </label>
-          </div>
-        </div>
+            </div>
+          )
+        })}
+
+        <AddReview productSlug={productSlug} />
       </div>
     </div>
   )

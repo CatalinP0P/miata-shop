@@ -1,0 +1,40 @@
+@import '../../../../../../_mixin';
+@import '../../../../../../_variables';
+
+.add__review__container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding-top: 2rem;
+
+  .add__review__image {
+    height: 4rem;
+    width: 4rem;
+    min-width: 4rem;
+    border-radius: 10rem;
+    background-size: cover;
+  }
+
+  .add__review__body {
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+
+    .add__review__input {
+      margin-top: 1rem;
+      background: transparent;
+      padding: 0.5rem;
+      color: $primary;
+      border: 2px solid $primary;
+      border-radius: 0.5rem;
+      outline: none;
+      min-height: 3rem;
+      font-family: 'Poppins';
+    }
+  }
+
+  .add__review__button {
+    margin-top: 2.5rem;
+  }
+}
