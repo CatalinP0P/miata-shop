@@ -3,6 +3,7 @@
 .product__reviews__container {
   display: flex;
   flex-direction: column;
+  padding-bottom: 2rem;
 
   .product__reviews__header {
     display: flex;
@@ -41,7 +42,7 @@
     margin-top: 3rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.5rem;
 
     .product__review__item {
       display: flex;
