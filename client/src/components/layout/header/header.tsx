@@ -7,6 +7,7 @@ import { ExitToApp } from '@mui/icons-material'
 import SearchBar from './components/searchBar/searchBar'
 import UserCard from 'components/ui/userCard/userCard'
 import MobileMenu from './components/mobileMenu/mobileMenu'
+import { links } from 'static/links'
 
 interface HeaderProps {
   variant?: 'normal' | 'fluid'
@@ -20,9 +21,17 @@ export default function Header({ variant = 'normal' }: HeaderProps) {
       <div className="header__body">
         <Logo />
         <div className="header__links__container">
-          <label className="header__link">Home</label>
-          <label className="header__link">Shop</label>
-          <label className="header__link">Explore</label>
+          {links.map((link) => {
+            return (
+              <label
+                key={link.title}
+                className="header__link"
+                onClick={() => (window.location.href = link.path)}
+              >
+                {link.title}
+              </label>
+            )
+          })}
         </div>
 
         <SearchBar />
