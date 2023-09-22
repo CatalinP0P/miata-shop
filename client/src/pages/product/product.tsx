@@ -51,7 +51,7 @@ export default function Product() {
               <label className="product__header__oldPrice">$140</label>
             </div>
             <Separator />
-            <AddToCart productSlug="" />
+            <AddToCart productSlug={slug + ''} />
           </div>
         </div>
         <div className="product__body">

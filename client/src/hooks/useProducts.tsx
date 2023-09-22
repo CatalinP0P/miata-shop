@@ -29,8 +29,6 @@ export default function useProducts(filters: FilterProps) {
       }
     })
 
-    console.log(body)
-
     client.getEntries(body).then((response) => {
       setProducts(response.items)
       setLoading(false)

@@ -35,6 +35,13 @@
     align-items: center;
     justify-content: space-between;
 
+    .header__body__item {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      align-items: center;
+    }
+
     .header__sign__button {
       display: none;
 
