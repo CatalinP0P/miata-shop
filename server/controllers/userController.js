@@ -1,4 +1,4 @@
-import app from '../utils/firebase-admin.js'
+import app from '../utils/firebase-admin.cjs'
 
 const auth = app.auth()
 
