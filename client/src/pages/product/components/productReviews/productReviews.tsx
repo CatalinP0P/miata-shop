@@ -1,8 +1,9 @@
 import React from 'react'
 import { Rating } from '@mui/material'
-import './productReviews.Module.scss'
 import AddReview from './components/addReview/addReview'
 import useReviews from 'hooks/useReviews'
+import blankImageProfile from 'assets/profileImage.webp'
+import './productReviews.Module.scss'
 
 export default function ProductReviews({
   productSlug,
@@ -26,12 +27,24 @@ export default function ProductReviews({
               <div className="product__review__item__body">
                 <div
                   className="product__review__item__image"
-                  style={{ backgroundImage: `url("${review.imageURL}")` }}
+                  style={{
+                    backgroundImage: `url("${
+                      review.user ? review.user.photoURL : blankImageProfile
+                    }")`,
+                  }}
                 />
                 <label className="product__review__item__text">
-                  <div className="product__reviews__rating__container">
-                    <Rating value={review.value} readOnly />
+                  <div className="product__review__item__header">
+                    {review.user && (
+                      <label className="product__review__item__name">
+                        {review.user?.displayName}
+                      </label>
+                    )}
+                    <div className="product__reviews__rating__container">
+                      <Rating value={review.value} readOnly />
+                    </div>
                   </div>
+
                   {review.text}
                 </label>
               </div>

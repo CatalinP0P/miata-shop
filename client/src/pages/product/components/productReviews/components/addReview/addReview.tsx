@@ -32,13 +32,18 @@ export default function AddReview({ productSlug }: { productSlug: string }) {
         style={{ backgroundImage: `url("${currentUser?.photoURL}")` }}
       ></div>
       <div className="add__review__body">
-        <Rating
-          value={rating}
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          onChange={(e: any) => {
-            setRating(e?.target?.value)
-          }}
-        />
+        <div className="add__review__body__header">
+          <label className="add__review__body__name">
+            {currentUser?.displayName}
+          </label>
+          <Rating
+            value={rating}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            onChange={(e: any) => {
+              setRating(e?.target?.value)
+            }}
+          />
+        </div>
         <textarea
           className="add__review__input"
           value={value}
