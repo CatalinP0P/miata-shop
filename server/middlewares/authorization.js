@@ -2,10 +2,9 @@ import app from '../utils/firebase-admin.js';
 
 const authorization = async (req, res, next) => {
   const authorizationHeader = req.headers['authorization'];
+
   if (authorizationHeader == null)
     return res.status(401).json('Missing Authorization Header');
-
-  console.log(authorizationHeader);
 
   try {
     const decodedToken = await app.auth().verifyIdToken(authorizationHeader);
