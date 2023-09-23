@@ -9,7 +9,6 @@ export default function ProductReviews({
 }: {
   productSlug: string
 }) {
-  console.log(productSlug)
   const { reviews } = useReviews(productSlug)
 
   return (
@@ -31,7 +30,7 @@ export default function ProductReviews({
                 />
                 <label className="product__review__item__text">
                   <div className="product__reviews__rating__container">
-                    <Rating value={review.rating} readOnly />
+                    <Rating value={review.value} readOnly />
                   </div>
                   {review.text}
                 </label>

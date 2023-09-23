@@ -3,16 +3,26 @@ import React, { useState } from 'react'
 import Button from 'components/ui/button/button'
 import './addReview.Module.scss'
 import { useAuth } from 'context/authContext'
+import reviewServices from 'services/reviewServices'
 
 export default function AddReview({ productSlug }: { productSlug: string }) {
   const { currentUser } = useAuth()
   const [value, setValue] = useState('')
   const [rating, setRating] = useState(5)
 
-  console.log(productSlug)
+  const sendReview = async () => {
+    let token = ''
+    token = (await currentUser?.getIdToken()) + ''
+    await reviewServices.postReview({
+      productSlug: productSlug,
+      text: value,
+      value: rating,
+      token,
+    })
 
-  const sendReview = () => {
-    setRating(1)
+    setTimeout(() => {
+      window.location.reload()
+    }, 125)
   }
 
   return (

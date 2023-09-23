@@ -52,8 +52,6 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     setProducts(newProducts as CartItemProps[])
   }
 
-  console.log(saveToLocalStorage)
-
   const addProductToCart = (product: CartItemProps) => {
     if (products?.find((m: CartItemProps) => m.slug == product.slug)) {
       const newProducts = products.map((m: CartItemProps) => {

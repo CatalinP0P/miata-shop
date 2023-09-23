@@ -15,15 +15,13 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', authorization, async (req, res) => {
-  const { text, value, productSlug, userId } = req.body;
+  const { text, value, productSlug } = req.body;
 
-  if (!text || !value || !productSlug || !userId)
+  if (!text || !value || !productSlug)
     return res.status(400).json('All fields are required');
 
-  if (userId !== req.user.uid) return res.status(403).json('Unauthorized');
-
   try {
-    await reviewController.addReview(productSlug, userId, text, value);
+    await reviewController.addReview(productSlug, req.user.uid, text, value);
     res.sendStatus(201);
   } catch (err) {
     res.sendStats(400);
