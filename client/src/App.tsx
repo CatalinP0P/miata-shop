@@ -8,6 +8,7 @@ import Register from 'pages/auth/register/register'
 import Search from 'pages/search/search'
 import Product from 'pages/product/product'
 import { CartProvider } from 'context/cartContext'
+import Error404 from 'pages/error404/error404'
 
 export default function App() {
   return (
@@ -21,7 +22,7 @@ export default function App() {
               <Route path="/auth/register" element={<Register />} />
               <Route path="/search" element={<Search />} />
               <Route path="/product/:slug" element={<Product />} />
-              <Route path="*" element={<label>Error 404</label>} />
+              <Route path="*" element={<Error404 />} />
             </Routes>
           </BrowserRouter>
         </Layout>
