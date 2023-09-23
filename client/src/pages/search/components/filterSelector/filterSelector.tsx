@@ -32,6 +32,7 @@ export default function FilterSelector() {
 
     Object.keys(filters).forEach((key) => {
       const value = searchParams.get(key)
+      console.log(key, value)
       setFilters((oldFilters) => {
         return { ...oldFilters, [key]: value }
       })
