@@ -21,6 +21,18 @@
     flex-grow: 1;
     flex-direction: column;
 
+    .add__review__body__header {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+
+      .add__review__body__name {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+    }
+
     .add__review__input {
       margin-top: 1rem;
       background: transparent;

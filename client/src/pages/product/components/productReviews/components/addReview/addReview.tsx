@@ -3,16 +3,26 @@ import React, { useState } from 'react'
 import Button from 'components/ui/button/button'
 import './addReview.Module.scss'
 import { useAuth } from 'context/authContext'
+import reviewServices from 'services/reviewServices'
 
 export default function AddReview({ productSlug }: { productSlug: string }) {
   const { currentUser } = useAuth()
   const [value, setValue] = useState('')
   const [rating, setRating] = useState(5)
 
-  console.log(productSlug)
+  const sendReview = async () => {
+    let token = ''
+    token = (await currentUser?.getIdToken()) + ''
+    await reviewServices.postReview({
+      productSlug: productSlug,
+      text: value,
+      value: rating,
+      token,
+    })
 
-  const sendReview = () => {
-    setRating(1)
+    setTimeout(() => {
+      window.location.reload()
+    }, 125)
   }
 
   return (
@@ -22,13 +32,18 @@ export default function AddReview({ productSlug }: { productSlug: string }) {
         style={{ backgroundImage: `url("${currentUser?.photoURL}")` }}
       ></div>
       <div className="add__review__body">
-        <Rating
-          value={rating}
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          onChange={(e: any) => {
-            setRating(e?.target?.value)
-          }}
-        />
+        <div className="add__review__body__header">
+          <label className="add__review__body__name">
+            {currentUser?.displayName}
+          </label>
+          <Rating
+            value={rating}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            onChange={(e: any) => {
+              setRating(e?.target?.value)
+            }}
+          />
+        </div>
         <textarea
           className="add__review__input"
           value={value}

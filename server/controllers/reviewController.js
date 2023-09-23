@@ -9,6 +9,11 @@ const getReviews = async (productSlug) => {
   return data;
 };
 
+const getByID = async (id) => {
+  const targetReview = await review.findById(id);
+  return targetReview;
+};
+
 const addReview = async (productSlug, userId, text, value) => {
   const newReview = new review({
     productSlug,
@@ -29,6 +34,7 @@ const reviewController = {
   getReviews,
   addReview,
   removeReview,
+  getByID,
 };
 
 export default reviewController;
