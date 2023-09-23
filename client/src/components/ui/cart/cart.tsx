@@ -5,6 +5,7 @@ import { useCart } from 'context/cartContext'
 import Separator from '../separator/separator'
 import CartItem from './components/cartItem/cartItem'
 import Button from '../button/button'
+import { useAuth } from 'context/authContext'
 
 export default function Cart() {
   const [visibility, setVisibility] = useState(false)
@@ -19,6 +20,13 @@ export default function Cart() {
   }, [visibility])
 
   const { products } = useCart()
+  const { currentUser } = useAuth()
+
+  const confirmOrder = () => {
+    if (currentUser == null) {
+      window.location.href = './auth/sign'
+    }
+  }
 
   return (
     <>
@@ -56,8 +64,14 @@ export default function Cart() {
           </div>
         </div>
         <div className="cart__popup__footer">
-          <label>${total}</label>
-          <Button>Confirm Order</Button>
+          <label className="cart__popup__total">
+            Total:
+            <span>${total}</span>
+          </label>
+          <Separator variant="dotted" />
+          <Button size="large" onClick={confirmOrder}>
+            Confirm Order
+          </Button>
         </div>
       </div>
       {visibility && (

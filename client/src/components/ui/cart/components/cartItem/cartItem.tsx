@@ -53,6 +53,7 @@ export default function CartItem({
       <div className="cart__popup__item" key={product.slug as string}>
         <div className="cart__popup__item__group">
           <div
+            onClick={() => (window.location.href = '/product/' + product.slug)}
             className="cart__popup__item__image"
             style={{
               backgroundImage: `url("${

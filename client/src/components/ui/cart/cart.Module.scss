@@ -58,6 +58,25 @@
   .cart__popup__body {
     margin-top: 2rem;
   }
+
+  .cart__popup__footer {
+    display: flex;
+    flex-direction: column;
+
+    .cart__popup__total {
+      font-size: 1.5rem;
+      font-weight: 500;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: baseline;
+
+      span {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    }
+  }
 }
 
 .cart__overlay {

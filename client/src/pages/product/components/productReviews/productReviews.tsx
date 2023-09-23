@@ -18,9 +18,6 @@ export default function ProductReviews({
         <label className="product__reviews__title">Reviews</label>
         <div className="product__reviews__rating__container">
           <Rating value={4} size="large" readOnly />
-          <label className="product__reviews__rating__label">
-            4/5 <span>{reviews?.length}</span>
-          </label>
         </div>
       </div>
       <div className="product__reviews__body">

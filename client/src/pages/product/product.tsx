@@ -50,9 +50,11 @@ export default function Product() {
               <label className="product__header__price">
                 ${product?.fields.price + ''}
               </label>
-              <label className="product__header__oldPrice">
-                ${product?.fields.oldPrice + ''}
-              </label>
+              {product?.fields.oldPrice && (
+                <label className="product__header__oldPrice">
+                  ${product?.fields.oldPrice + ''}
+                </label>
+              )}
             </div>
             <Separator />
             <AddToCart productSlug={slug + ''} />
