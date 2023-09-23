@@ -1,9 +1,10 @@
 import express from 'express';
 import reviewController from '../controllers/reviewController.js';
+import authorization from '../middlewares/authorization.js';
 
 const router = express.Router();
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', authorization, async (req, res) => {
   const id = req.params.id;
   try {
     const reviews = await reviewController.getReviews(id);
