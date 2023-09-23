@@ -16,8 +16,6 @@ export default function useProduct(slug: string) {
       'fields.slug': slug,
     }
 
-    console.log(slug)
-
     client.getEntries(body).then((response) => {
       setProduct(response.items[0])
       setLoading(false)

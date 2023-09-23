@@ -8,6 +8,7 @@ import SearchBar from './components/searchBar/searchBar'
 import UserCard from 'components/ui/userCard/userCard'
 import MobileMenu from './components/mobileMenu/mobileMenu'
 import { links } from 'static/links'
+import Cart from 'components/ui/cart/cart'
 
 interface HeaderProps {
   variant?: 'normal' | 'fluid'
@@ -36,25 +37,28 @@ export default function Header({ variant = 'normal' }: HeaderProps) {
 
         <SearchBar />
 
-        {currentUser != null && (
-          <span className="header__account__container">
-            <UserCard user={currentUser} />
-            <div onClick={signOut}>
-              <ExitToApp fontSize="large" className="header__account__exit" />
+        <div className="header__body__item">
+          {currentUser != null && (
+            <span className="header__account__container">
+              <UserCard user={currentUser} />
+              <div onClick={signOut}>
+                <ExitToApp fontSize="large" className="header__account__exit" />
+              </div>
+            </span>
+          )}
+
+          {currentUser == null && (
+            <div
+              className="header__sign__button"
+              onClick={() => (window.location.href = '/auth/sign')}
+            >
+              <Button variant={'tertiary'}>Sign in</Button>
             </div>
-          </span>
-        )}
+          )}
 
-        {currentUser == null && (
-          <div
-            className="header__sign__button"
-            onClick={() => (window.location.href = '/auth/sign')}
-          >
-            <Button variant={'tertiary'}>Sign in</Button>
-          </div>
-        )}
-
-        <MobileMenu />
+          <MobileMenu />
+          <Cart />
+        </div>
       </div>
     </div>
   )

@@ -10,7 +10,11 @@
   flex-grow: 1;
   color: &primary;
   border-radius: 100rem;
-  display: flex;
+  display: none;
+
+  @include sm {
+    display: flex;
+  }
 
   .header__search__input {
     outline: none;

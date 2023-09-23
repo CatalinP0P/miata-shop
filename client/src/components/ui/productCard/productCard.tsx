@@ -2,12 +2,15 @@ import React from 'react'
 import { Entry, EntrySkeletonType } from 'contentful'
 import './productCard.Module.scss'
 import Button from '../button/button'
+import { useCart } from 'context/cartContext'
 
 export default function ProductCard({
   product,
 }: {
   product: Entry<EntrySkeletonType, undefined, string>
 }) {
+  const { addProductToCart } = useCart()
+
   return (
     <div
       className="product__card__container"
@@ -47,6 +50,10 @@ export default function ProductCard({
           className="product__card__button"
           onClick={(e) => {
             e.stopPropagation()
+            addProductToCart({
+              slug: product.fields.slug as string,
+              quantity: 1,
+            })
           }}
         >
           Add to Cart

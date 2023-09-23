@@ -37,10 +37,13 @@
 
     .product__header__body {
       width: 100%;
-      padding: 0 1rem;
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
+
+      @include md {
+        padding: 0 1rem;
+      }
 
       .product__header__title {
         font-size: 2rem;
