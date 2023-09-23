@@ -1,4 +1,4 @@
-import app from '../utils/firebase-admin.js'
+import app from '../utils/firebase-admin.cjs'
 
 const authorization = async (req, res, next) => {
   const authorizationHeader = req.headers['authorization']
