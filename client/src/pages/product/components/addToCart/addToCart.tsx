@@ -7,8 +7,6 @@ export default function AddToCart({ productSlug }: { productSlug: string }) {
   const [value, setValue] = useState(1)
   const { addProductToCart } = useCart()
 
-  console.log(productSlug)
-
   return (
     <div className="product__header__buy">
       <FormNumberInput value={value} setValue={setValue} />

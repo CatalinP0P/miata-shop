@@ -47,8 +47,12 @@ export default function Product() {
             </label>
 
             <div className="product__header__price__area">
-              <label className="product__header__price">$130</label>
-              <label className="product__header__oldPrice">$140</label>
+              <label className="product__header__price">
+                ${product?.fields.price + ''}
+              </label>
+              <label className="product__header__oldPrice">
+                ${product?.fields.oldPrice + ''}
+              </label>
             </div>
             <Separator />
             <AddToCart productSlug={slug + ''} />

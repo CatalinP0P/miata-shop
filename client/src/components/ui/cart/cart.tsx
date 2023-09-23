@@ -8,6 +8,7 @@ import Button from '../button/button'
 
 export default function Cart() {
   const [visibility, setVisibility] = useState(false)
+  const [total, setTotal] = useState(0)
 
   useEffect(() => {
     if (visibility) {
@@ -17,20 +18,19 @@ export default function Cart() {
     }
   }, [visibility])
 
-  const { products, loading } = useCart()
-
-  useEffect(() => {
-    if (loading) return
-
-    console.log(products)
-  }, [loading, products])
+  const { products } = useCart()
 
   return (
     <>
       <div className="cart__button" onClick={() => setVisibility(!visibility)}>
         <ShoppingBag fontSize="large" />
-        {products?.length && (
-          <div className="cart__button__length">{products.length}</div>
+        {products && products.length > 0 && (
+          <div className="cart__button__length">
+            {products.reduce(
+              (total, product) => (total += product.quantity),
+              0,
+            )}
+          </div>
         )}
       </div>
       <div
@@ -48,12 +48,15 @@ export default function Cart() {
                 <CartItem
                   key={product.slug}
                   product={product as { slug: string; quantity: number }}
+                  total={total}
+                  setTotal={setTotal}
                 />
               )
             })}
           </div>
         </div>
         <div className="cart__popup__footer">
+          <label>${total}</label>
           <Button>Confirm Order</Button>
         </div>
       </div>
