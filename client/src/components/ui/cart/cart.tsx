@@ -10,6 +10,7 @@ import { useAuth } from 'context/authContext'
 export default function Cart() {
   const [visibility, setVisibility] = useState(false)
   const [total, setTotal] = useState(0)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if (visibility) {
@@ -26,6 +27,7 @@ export default function Cart() {
     if (currentUser == null) {
       return (window.location.href = './auth/sign')
     }
+    setLoading(true)
     checkout()
   }
 
@@ -75,6 +77,7 @@ export default function Cart() {
           </Button>
         </div>
       </div>
+      {loading && <div className="loading__overlay"></div>}
       {visibility && (
         <div className="cart__overlay" onClick={() => setVisibility(false)} />
       )}

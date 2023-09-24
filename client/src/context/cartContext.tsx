@@ -81,7 +81,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   const checkout = async () => {
     const products = JSON.parse(localStorage.getItem('miata-shop-cart') + '')
-    if (products != '') await paymentServices.checkoutProducts(products)
+    if (products != '') {
+      await paymentServices.checkoutProducts(products)
+      saveToLocalStorage([])
+    }
   }
 
   useEffect(() => {
