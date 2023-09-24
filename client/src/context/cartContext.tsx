@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
+import paymentServices from 'services/paymentServices'
 
 interface CartItemProps {
   slug: string
@@ -10,6 +11,7 @@ interface CartContextProps {
   products: CartItemProps[] | null
   addProductToCart: (product: CartItemProps) => void
   removeFromCart: (productSlug: string) => void
+  checkout: () => Promise<void>
 }
 
 const CartContext = createContext<CartContextProps>({
@@ -17,6 +19,7 @@ const CartContext = createContext<CartContextProps>({
   products: null,
   addProductToCart: () => {},
   removeFromCart: () => {},
+  checkout: async () => {},
 })
 
 export const useCart = () => {
@@ -76,13 +79,18 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
+  const checkout = async () => {
+    const products = JSON.parse(localStorage.getItem('miata-shop-cart') + '')
+    if (products != '') await paymentServices.checkoutProducts(products)
+  }
+
   useEffect(() => {
     getCartFromLocal()
   }, [])
 
   return (
     <CartContext.Provider
-      value={{ products, loading, addProductToCart, removeFromCart }}
+      value={{ products, loading, addProductToCart, removeFromCart, checkout }}
     >
       {children}
     </CartContext.Provider>
