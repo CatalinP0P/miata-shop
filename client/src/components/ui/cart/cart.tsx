@@ -19,13 +19,14 @@ export default function Cart() {
     }
   }, [visibility])
 
-  const { products } = useCart()
+  const { products, checkout } = useCart()
   const { currentUser } = useAuth()
 
   const confirmOrder = () => {
     if (currentUser == null) {
-      window.location.href = './auth/sign'
+      return (window.location.href = './auth/sign')
     }
+    checkout()
   }
 
   return (
