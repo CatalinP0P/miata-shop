@@ -3,50 +3,54 @@
 
 .add__review__container {
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 0.5rem;
   padding-top: 2rem;
 
-  .add__review__image {
-    height: 4rem;
-    width: 4rem;
-    min-width: 4rem;
-    border-radius: 10rem;
-    background-size: cover;
-  }
-
-  .add__review__body {
+  .add__review__area {
     display: flex;
-    width: 100%;
-    flex-grow: 1;
     flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
 
-    .add__review__body__header {
-      display: flex;
+    @include sm {
       flex-direction: row;
-      gap: 1rem;
-      align-items: center;
+    }
 
-      .add__review__body__name {
-        font-size: 1.5rem;
-        font-weight: 700;
+    .add__review__body {
+      display: flex;
+      width: 100%;
+      flex-grow: 1;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .add__review__body__header {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+
+        .add__review__body__name {
+          font-size: 1.5rem;
+          font-weight: 700;
+        }
+      }
+
+      .add__review__input {
+        background: transparent;
+        padding: 0.5rem;
+        color: white;
+        border-radius: 0.5rem;
+        outline: none;
+        height: 4rem;
+        font-family: 'Poppins';
       }
     }
 
-    .add__review__input {
-      margin-top: 1rem;
-      background: transparent;
-      padding: 0.5rem;
-      color: $primary;
-      border: 2px solid $primary;
-      border-radius: 0.5rem;
-      outline: none;
-      min-height: 3rem;
-      font-family: 'Poppins';
+    .add__review__button {
+      margin-top: auto;
+      width: fit-content;
+      height: 4rem;
     }
-  }
-
-  .add__review__button {
-    margin-top: 2.5rem;
   }
 }

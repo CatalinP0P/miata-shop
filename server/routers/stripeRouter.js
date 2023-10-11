@@ -91,7 +91,7 @@ router.post('/create-checkout-session', async (req, res) => {
     },
     line_items: line_items,
     mode: 'payment',
-    success_url: `${process.env.CLIENT_URL}/checkout-success`,
+    success_url: `${process.env.CLIENT_URL}/checkout-success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${process.env.CLIENT_URL}/`,
   })
 

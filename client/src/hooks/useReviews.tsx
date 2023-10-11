@@ -19,8 +19,6 @@ export default function useReviews(productSlug: string) {
   const fetchData = async () => {
     const data = await reviewServices.getFromProduct(productSlug)
     setReviews(data)
-    console.log(data)
-
     setLoading(false)
   }
 
