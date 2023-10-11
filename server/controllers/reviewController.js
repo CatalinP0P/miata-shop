@@ -4,7 +4,6 @@ const getReviews = async (productSlug) => {
   const data = await review.find({
     productSlug: productSlug,
   })
-
   return data
 }
 

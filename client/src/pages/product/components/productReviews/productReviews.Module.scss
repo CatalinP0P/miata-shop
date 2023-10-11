@@ -12,7 +12,7 @@
 
     @include md {
       flex-direction: row;
-      gap: 6rem;
+      gap: 3rem;
     }
 
     .product__reviews__title {
@@ -67,7 +67,7 @@
       .product__review__item__body {
         display: flex;
         flex-direction: row;
-        gap: 2rem;
+        gap: 1rem;
         align-items: top;
 
         .product__review__item__image {
