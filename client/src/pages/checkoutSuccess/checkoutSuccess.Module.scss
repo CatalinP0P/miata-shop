@@ -1,0 +1,67 @@
+@import '../../_mixin';
+@import '../../_variables';
+
+.page__container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: $container-width;
+  margin: 0 auto;
+  justify-content: center;
+  color: white;
+  gap: 1.5rem;
+
+  @include md {
+    align-items: start;
+  }
+
+  .page__container__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+
+    @include md {
+      align-items: start;
+    }
+
+    .page__icon {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      color: $primary;
+      border: 4px solid $primary;
+      border-radius: 10rem;
+      height: 6rem;
+      width: 6rem;
+      font-size: 5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .page__title {
+      font-size: 2rem;
+      line-height: 2rem;
+      font-weight: 700;
+      color: $primary;
+
+      @include md {
+        font-size: 3rem;
+        line-height: 3rem;
+      }
+    }
+
+    .page__subtitle {
+      opacity: 60%;
+      line-height: 0.75rem;
+      font-size: 0.75rem;
+
+      @include md {
+        line-height: 1rem;
+        font-size: 1rem;
+      }
+    }
+  }
+}
