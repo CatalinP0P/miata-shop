@@ -2,10 +2,18 @@ import { CheckRounded } from '@mui/icons-material'
 import Footer from 'components/layout/footer/footer'
 import Header from 'components/layout/header/header'
 import Button from 'components/ui/button/button'
-import React from 'react'
+import React, { useEffect } from 'react'
 import './checkoutSuccess.Module.scss'
+import { processOrder } from 'services/orderServices'
 
 export default function CheckoutSuccess() {
+  const searchParams = new URLSearchParams(window.location.search)
+
+  useEffect(() => {
+    const sessionId = searchParams.get('session_id')
+    processOrder(sessionId as string)
+  }, [searchParams.get('session_id')])
+
   return (
     <div>
       <Header variant="fluid" />
