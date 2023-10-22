@@ -2,32 +2,47 @@ import { Schema } from 'mongoose'
 import mongoose from '../utils/mongoose.js'
 
 const orderSchema = new Schema({
-  email: {
-    type: Schema.Types.ObjectId,
-    ref: 'User', // Reference to the User model
-    required: true,
-  },
-  products: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Product', // Reference to the Product model
-      required: true,
+  customer_details: {
+    address: {
+      city: String,
+      country: String,
+      line1: String,
+      line2: String,
+      postal_code: String,
+      state: String,
     },
-  ],
-  totalPrice: {
-    type: Number,
-    required: true,
+    email: String,
+    name: String,
+    phone: String,
   },
+  shipping_details: {
+    address: {
+      city: String,
+      country: String,
+      line1: String,
+      line2: String,
+      postal_code: String,
+      state: String,
+    },
+    name: String,
+  },
+  amount: Number,
+  products: [
+    [
+      {
+        slug: String,
+        quantity: Number,
+      },
+    ],
+  ],
+  stripe_session: String,
+  created_at: { type: Date, required: true, default: Date.now },
   status: {
     type: String,
     enum: ['pending', 'processing', 'shipped', 'delivered'],
     default: 'pending',
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
 })
 
-const review = mongoose.model('Order', orderSchema)
-export default review
+const order = mongoose.model('Order', orderSchema)
+export default order
