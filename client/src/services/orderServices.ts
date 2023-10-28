@@ -1,6 +1,8 @@
-import api from 'utils/api'
+import { OrderProps } from 'types/order'
+import { getAuthorizedApi } from 'utils/api'
 
-export const processOrder = (sessionId: string) => {
+export const processOrder = (sessionId: string, authToken: string) => {
+  const api = getAuthorizedApi(authToken)
   api
     .post('/order/process/' + sessionId)
     .then(() => {
@@ -9,4 +11,14 @@ export const processOrder = (sessionId: string) => {
     .catch(() => {
       //   console.log(err.response)
     })
+}
+
+export const getOrdersFromUserId = async (authToken: string) => {
+  const api = getAuthorizedApi(authToken)
+  try {
+    const response = await api.get('/order/')
+    return response.data as OrderProps[]
+  } catch {
+    return []
+  }
 }

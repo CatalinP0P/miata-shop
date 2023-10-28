@@ -3,19 +3,18 @@ import './header.Module.scss'
 import Logo from 'components/ui/logo/logo'
 import { useAuth } from 'context/authContext'
 import Button from 'components/ui/button/button'
-import { ExitToApp } from '@mui/icons-material'
 import SearchBar from './components/searchBar/searchBar'
-import UserCard from 'components/ui/userCard/userCard'
 import MobileMenu from './components/mobileMenu/mobileMenu'
 import { links } from 'static/links'
 import Cart from 'components/ui/cart/cart'
+import LoggedUserCard from './components/loggedUserCard/loggedUserCard'
 
 interface HeaderProps {
   variant?: 'normal' | 'fluid'
 }
 
 export default function Header({ variant = 'normal' }: HeaderProps) {
-  const { currentUser, signOut } = useAuth()
+  const { currentUser } = useAuth()
 
   return (
     <div className={'header__container ' + `header__container--${variant}`}>
@@ -38,12 +37,10 @@ export default function Header({ variant = 'normal' }: HeaderProps) {
         <SearchBar />
 
         <div className="header__body__item">
+          <Cart />
           {currentUser != null && (
             <span className="header__account__container">
-              <UserCard user={currentUser} />
-              <div onClick={signOut}>
-                <ExitToApp fontSize="large" className="header__account__exit" />
-              </div>
+              <LoggedUserCard currentUser={currentUser} />
             </span>
           )}
 
@@ -57,7 +54,6 @@ export default function Header({ variant = 'normal' }: HeaderProps) {
           )}
 
           <MobileMenu />
-          <Cart />
         </div>
       </div>
     </div>

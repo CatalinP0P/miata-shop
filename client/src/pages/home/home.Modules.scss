@@ -2,6 +2,7 @@
 
 .home__container {
   display: flex;
+  z-index: 5;
   flex-direction: column;
   gap: 5rem;
   padding-bottom: 5rem;

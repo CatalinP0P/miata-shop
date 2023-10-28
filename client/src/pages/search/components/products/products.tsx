@@ -25,12 +25,7 @@ export default function Products() {
     return filters
   }
 
-  const { products, loading } = useProducts(getFiltersFromURL())
-
-  useEffect(() => {
-    if (loading) return
-    console.log(products)
-  }, [loading])
+  const { products } = useProducts(getFiltersFromURL())
 
   useEffect(() => {
     getFiltersFromURL()
