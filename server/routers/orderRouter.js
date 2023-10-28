@@ -1,5 +1,6 @@
 import express from 'express'
 import {
+  getOrderFromId,
   getOrdersFromUserId,
   processOrder,
 } from '../controllers/orderController.js'
@@ -16,6 +17,11 @@ router.get('/', authorization, async (req, res) => {
   console.log(req.user.uid)
   const orders = await getOrdersFromUserId(req.user.uid)
   res.json(orders)
+})
+
+router.get('/:id', authorization, async (req, res) => {
+  const order = await getOrderFromId(req.params.id, req.user.uid)
+  res.json(order)
 })
 
 export default router

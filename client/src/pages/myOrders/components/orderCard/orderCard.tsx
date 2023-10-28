@@ -12,7 +12,9 @@ export default function OrderCard({ order }: { order: OrderProps }) {
         <label>
           Order Number: <span>{order._id as string}</span>
         </label>
-        <label className="order__card__price">Total: ${order.amount}</label>
+        <label className="order__card__price">
+          Total: ${order.amount / 100}
+        </label>
       </div>
       <div className="order__card__body">
         <label className="order__card__date">
@@ -32,7 +34,12 @@ export default function OrderCard({ order }: { order: OrderProps }) {
         </div>
       </div>
       <div className="order__card__footer">
-        <label className="order__card__link">View Order</label>
+        <label
+          className="order__card__link"
+          onClick={() => navigate(`/my-orders/${order._id as string}`)}
+        >
+          View Order
+        </label>
       </div>
     </div>
   )

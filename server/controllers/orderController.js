@@ -13,9 +13,21 @@ export const getOrderByStripeSession = async (sessionId) => {
   }
 }
 
+export const getOrderFromId = async (id, userId) => {
+  try {
+    const ord = await order.findById(id)
+    if (ord.userId != userId) throw 'No permission for accessing this order'
+
+    return ord
+  } catch (err) {
+    console.log(err)
+    return null
+  }
+}
+
 export const getOrdersFromUserId = async (userId) => {
   try {
-    const orders = await order.find({ userId: userId })
+    const orders = await order.find({ userId: userId }).sort({ created_at: -1 })
     return orders
   } catch {
     return []

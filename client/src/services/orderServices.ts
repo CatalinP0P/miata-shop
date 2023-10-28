@@ -22,3 +22,13 @@ export const getOrdersFromUserId = async (authToken: string) => {
     return []
   }
 }
+
+export const getOrderFromId = async (id: string, authToken: string) => {
+  const api = getAuthorizedApi(authToken)
+  try {
+    const response = await api.get('/order/' + id)
+    return response.data
+  } catch (err) {
+    return null
+  }
+}
