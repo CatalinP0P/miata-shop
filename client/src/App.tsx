@@ -10,6 +10,7 @@ import Product from 'pages/product/product'
 import { CartProvider } from 'context/cartContext'
 import Error404 from 'pages/error404/error404'
 import CheckoutSuccess from 'pages/checkoutSuccess/checkoutSuccess'
+import MyOrders from 'pages/myOrders/myOrders'
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
               <Route path="/search" element={<Search />} />
               <Route path="/product/:slug" element={<Product />} />
               <Route path="/checkout-success" element={<CheckoutSuccess />} />
+              <Route path="/my-orders" element={<MyOrders />} />
               <Route path="*" element={<Error404 />} />
             </Routes>
           </BrowserRouter>

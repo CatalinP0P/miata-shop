@@ -13,7 +13,16 @@ export const getOrderByStripeSession = async (sessionId) => {
   }
 }
 
-export const processOrder = async (sessionId) => {
+export const getOrdersFromUserId = async (userId) => {
+  try {
+    const orders = await order.find({ userId: userId })
+    return orders
+  } catch {
+    return []
+  }
+}
+
+export const processOrder = async (sessionId, userId) => {
   try {
     const products = await getProductsFromSession(sessionId)
 
@@ -30,6 +39,7 @@ export const processOrder = async (sessionId) => {
     if (payment_status != 'paid') return 'Session not completed'
 
     const newOrder = new order({
+      userId,
       products,
       amount: amount_total,
       stripe_session: id,

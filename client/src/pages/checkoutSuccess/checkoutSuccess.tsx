@@ -5,14 +5,24 @@ import Button from 'components/ui/button/button'
 import React, { useEffect } from 'react'
 import './checkoutSuccess.Module.scss'
 import { processOrder } from 'services/orderServices'
+import { useAuth } from 'context/authContext'
 
 export default function CheckoutSuccess() {
   const searchParams = new URLSearchParams(window.location.search)
+  const { currentUser, loading } = useAuth()
+
+  const completeOrder = async () => {
+    const sessionId = searchParams.get('session_id')
+    processOrder(
+      sessionId as string,
+      (await currentUser?.getIdToken()) as string,
+    )
+  }
 
   useEffect(() => {
-    const sessionId = searchParams.get('session_id')
-    processOrder(sessionId as string)
-  }, [searchParams.get('session_id')])
+    if (loading) return
+    completeOrder()
+  }, [searchParams.get('session_id'), loading])
 
   return (
     <div>

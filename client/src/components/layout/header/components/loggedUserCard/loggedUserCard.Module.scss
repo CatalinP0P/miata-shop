@@ -1,0 +1,54 @@
+@import '../../../../../_variables';
+
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 50;
+}
+
+.user__card {
+  z-index: 75;
+  cursor: pointer;
+  position: relative;
+
+  & > * {
+    pointer-events: none;
+  }
+}
+
+.user__popup {
+  position: absolute;
+  top: 4.5rem;
+  right: 0;
+  background-color: $background;
+  border: 1px solid $primary;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  z-index: 100;
+  pointer-events: auto;
+  display: flex;
+  gap: 0.5rem;
+  align-items: end;
+  flex-direction: column;
+
+  .user__popup__link {
+    color: $primary;
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    cursor: pointer;
+
+    & > * {
+      pointer-events: none;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

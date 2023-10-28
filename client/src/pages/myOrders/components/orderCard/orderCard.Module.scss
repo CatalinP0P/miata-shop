@@ -1,0 +1,57 @@
+@import '../../../../_mixin';
+@import '../../../../_variables';
+
+.order__card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  gap: 0.5rem;
+
+  .order__card__header,
+  .order__card__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: space-between;
+
+    @include sm {
+      flex-direction: row;
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  .order__card__body {
+    border-top: 1px solid rgba(255, 255, 255, 0.125);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+    padding: 0.5rem 0;
+
+    .order__card__date {
+      opacity: 0.6;
+    }
+
+    .order__card__products {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0.5rem;
+
+      .order__card__product {
+        span {
+          color: $primary;
+          opacity: 0.5;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .order__card__link {
+    text-decoration: underline;
+    color: $primary;
+    font-weight: 300;
+    text-underline-offset: 0.25rem;
+  }
+}

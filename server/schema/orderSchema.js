@@ -2,6 +2,7 @@ import { Schema } from 'mongoose'
 import mongoose from '../utils/mongoose.js'
 
 const orderSchema = new Schema({
+  userId: String,
   customer_details: {
     address: {
       city: String,
@@ -28,12 +29,10 @@ const orderSchema = new Schema({
   },
   amount: Number,
   products: [
-    [
-      {
-        slug: String,
-        quantity: Number,
-      },
-    ],
+    {
+      slug: String,
+      quantity: Number,
+    },
   ],
   stripe_session: String,
   created_at: { type: Date, required: true, default: Date.now },
