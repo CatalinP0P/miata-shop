@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Button from 'components/ui/button/button'
 import './mobileMenu.Module.scss'
 import { CloseRounded, ExitToApp, MenuRounded } from '@mui/icons-material'
-import { links } from 'static/links'
+import { mobileLinks } from 'static/links'
 import UserCard from 'components/ui/userCard/userCard'
 import { useAuth } from 'context/authContext'
 
@@ -37,7 +37,7 @@ export default function MobileMenu() {
           visibility ? 'mobile__menu__popup--active' : ''
         }`}
       >
-        {links.map((link) => {
+        {mobileLinks.map((link) => {
           return (
             <label
               key={link.title}

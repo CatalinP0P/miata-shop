@@ -13,7 +13,7 @@ import ProductReviews from './components/productReviews/productReviews'
 export default function Product() {
   const { slug } = useParams()
 
-  const { product, loading } = useProduct(slug + '')
+  const { product, loading } = useProduct(slug as string)
 
   useEffect(() => {
     if (loading) return
