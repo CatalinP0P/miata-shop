@@ -60,9 +60,13 @@
       }
 
       .header__link {
+        background-color: transparent;
+        border: none;
+        color: white;
         cursor: pointer;
         position: relative;
         font-weight: 700;
+        font-size: 1.25rem;
         padding: 0.25rem 0.25rem;
 
         &::before {

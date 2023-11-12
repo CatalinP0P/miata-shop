@@ -76,7 +76,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const signInWithEmail = async (email: string, password: string) => {
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(() => {})
+      .then(() => {
+        window.location.href = '/'
+      })
       .catch((err: firebase.FirebaseError) => {
         setError(err.message.split(':')[1].split('.')[0])
       })

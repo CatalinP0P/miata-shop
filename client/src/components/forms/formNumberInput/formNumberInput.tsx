@@ -15,12 +15,13 @@ export default function FormNumberInput({
 }: FormNumberInputProps) {
   return (
     <div className="number__input__container">
-      <label className="number__value">
+      <label className="number__value" data-testid="quantity">
         {value != null ? value : placeholder}
       </label>
       <div className="number__input__selector">
         <div
           className="number__input__button"
+          data-testid="quantity_up"
           onClick={() => setValue((oldValue: number) => oldValue + 1)}
         >
           <div className="number__input__button__icon">
@@ -29,6 +30,7 @@ export default function FormNumberInput({
         </div>
         <div
           className="number__input__button"
+          data-testid="quantity_down"
           onClick={() => setValue((oldValue: number) => oldValue - 1)}
         >
           <div className="number__input__button__icon">

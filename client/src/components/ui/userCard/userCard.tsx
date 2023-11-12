@@ -15,7 +15,9 @@ export default function UserCard({
     >
       <div className="user__card__text__container">
         <label className="user__card__name">{user?.displayName}</label>
-        <label className="user__card__email">{user?.email}</label>
+        <label className="user__card__email" data-testid="account_email">
+          {user?.email}
+        </label>
       </div>
 
       <img src={user?.photoURL as string} className="user__card__image" />

@@ -18,14 +18,14 @@ export default function SignForm() {
         <FormInput
           title="Email"
           type="email"
-          placeholder="test@example.com"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <FormInput
           title="Password"
           type="password"
-          placeholder="password"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

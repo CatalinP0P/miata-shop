@@ -23,13 +23,13 @@ export default function Header({ variant = 'normal' }: HeaderProps) {
         <div className="header__links__container">
           {links.map((link) => {
             return (
-              <label
+              <button
                 key={link.title}
                 className="header__link"
                 onClick={() => (window.location.href = link.path)}
               >
                 {link.title}
-              </label>
+              </button>
             )
           })}
         </div>
