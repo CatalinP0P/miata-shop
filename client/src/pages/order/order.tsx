@@ -52,7 +52,9 @@ export default function Order() {
               </div>
               <div className="info__item">
                 <label className="info__item__key">Amount:</label>
-                <label className="info__item__value">${order?.amount}</label>
+                <label className="info__item__value">
+                  ${(order?.amount as number) / 100}
+                </label>
               </div>
             </div>
           </div>

@@ -45,14 +45,14 @@ export default function RegisterForm() {
           title="Email"
           type="email"
           name="email"
-          placeholder="test@example.com"
+          placeholder="Email"
           value={userData.email}
           onChange={handleChange}
         />
         <FormInput
           title="Password"
           type="password"
-          placeholder="password"
+          placeholder="Password"
           name="password"
           value={userData.password}
           onChange={handleChange}
@@ -60,7 +60,7 @@ export default function RegisterForm() {
         <FormInput
           title="Confirm Password"
           type="password"
-          placeholder="password"
+          placeholder="Confirm Password"
           name="confirmPassword"
           value={userData.confirmPassword}
           onChange={handleChange}

@@ -14,6 +14,7 @@ export default function ProductCard({
   return (
     <div
       className="product__card__container"
+      data-testid="product_card"
       onClick={() =>
         (window.location.href = ('product/' + product.fields.slug) as string)
       }

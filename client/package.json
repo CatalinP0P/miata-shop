@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.14.9",
+    "@testing-library/cypress": "^10.0.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -24,6 +25,7 @@
     "@types/react-dom": "^18.2.7",
     "axios": "^1.5.0",
     "contentful": "^10.5.2",
+    "cypress": "^13.4.0",
     "firebase": "^10.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -38,7 +40,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "test": "npx cypress run"
   },
   "eslintConfig": {
     "extends": [
@@ -64,6 +67,7 @@
     "babel-plugin-module-resolver": "^5.0.0",
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-cypress": "^2.15.1",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^5.0.0",

@@ -20,7 +20,11 @@ export default function LoggedUserCard({
       {visible && (
         <div className="overlay" onClick={() => setVisible(false)}></div>
       )}
-      <div className="user__card" onClick={() => setVisible(!visible)}>
+      <div
+        className="user__card"
+        onClick={() => setVisible(!visible)}
+        data-testid="account_card"
+      >
         <UserCard user={currentUser} />
         {visible && (
           <div className="user__popup" onClick={(e) => e.stopPropagation()}>
