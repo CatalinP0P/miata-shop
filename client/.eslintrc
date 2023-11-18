@@ -8,8 +8,7 @@
   ],
   "plugins": [
     "react",
-    "@typescript-eslint",
-    "cypress"
+    "@typescript-eslint"
   ],
   "settings": {
     "react": {
